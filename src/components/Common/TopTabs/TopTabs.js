@@ -1,4 +1,5 @@
 import React, {Component} from "react";
+import {MenuOutlined} from "@ant-design/icons";
 import "./top-tabs.css";
 
 export default class TopTabs extends Component {
@@ -18,6 +19,10 @@ export default class TopTabs extends Component {
     })
   }
 
+  showItem = () => {
+    console.log("显示菜单");
+  }
+
   render() {
     return (
       <div className="hide-table-scroll">
@@ -28,6 +33,9 @@ export default class TopTabs extends Component {
                    className={`tab-item ${index === this.state.index ? "active" : ""}`}>{tab.text}</div>
             ))
           }
+          <div className="tab-item-right" onClick={this.showItem}>
+            <MenuOutlined/>
+          </div>
         </div>
       </div>
     )

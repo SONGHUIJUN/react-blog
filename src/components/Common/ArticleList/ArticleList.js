@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import "./article-list.css";
+import {CloseOutlined} from "@ant-design/icons";
 
 export default class ArticleList extends Component {
   constructor(props) {
@@ -11,17 +12,39 @@ export default class ArticleList extends Component {
   render() {
     let {articleData} = this.props;
     return (
-      <div className="article-item">
-        <div className="article-item-title">
-          <b>{articleData.title}</b>
-          {
-            articleData.subTitle&&
-            <div className="article-item-sub-title">
-              { articleData.subTitle}
+      <div>
+        {
+          articleData.type === "top" &&
+          <div className="article-item">
+            <div className="article-item-title">
+              {articleData.title}
             </div>
-          }
-        </div>
-        <div>{articleData.content}</div>
+            <div className="article-item-container">
+              <span className="article-item-top">置顶</span>
+              <span className="article-item-company">{articleData.company}</span>
+              <span className="article-item-comment">{articleData.comment}评论</span>
+            </div>
+          </div>
+        }
+        {
+          articleData.type === "type-right" &&
+          <div className="article-item article-item-type-right">
+            <div className="article-item-left">
+              <div className="article-item-title">
+                {articleData.title}
+              </div>
+              <div className="article-item-container">
+                <span className="article-item-company">{articleData.company}</span>
+                <span className="article-item-comment">{articleData.comment}评论</span>
+                <span className="article-item-time">{articleData.time}</span>
+                <span className="article-item-close"><CloseOutlined /></span>
+              </div>
+            </div>
+            <div className="article-item-right">
+              <img alt="此处为图片" src="./images/image.jpg"/>
+            </div>
+          </div>
+        }
       </div>
     )
   }

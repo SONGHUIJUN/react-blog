@@ -4,7 +4,55 @@
   border-bottom: 0.02rem solid #eeeeee;
 }
 
-.article-item-sub-title {
-  color: #ccc;
+.article-item-type-right {
+  display: flex;
+}
+
+.article-item-title {
+  font-weight: bold;
+  font-size: 0.30rem;
+}
+
+.article-item-container {
   font-size: 0.24rem;
+  margin-top: 0.1rem;
+}
+
+.article-item-close{
+  float: right;
+}
+
+.article-item-container span {
+  display: inline-block;
+  margin-right: 0.15rem;
+}
+
+.article-item-sub-title, .article-item-company, .article-item-comment, .article-item-time {
+  color: #878787;
+}
+
+.article-item-top {
+  color: #e64b47;
+}
+
+.article-item-type-right > div.article-item-left {
+  flex: 1;
+  margin-right: 0.2rem;
+  position: relative;
+}
+
+.article-item-type-right > div.article-item-left .article-item-container {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+.article-item-type-right > div.article-item-right {
+  width: 2.5rem;
+}
+
+.article-item-type-right > div.article-item-right img {
+  width: 100%;
+  border-radius: 4px;
 }
