@@ -1,0 +1,19 @@
+.Page {
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
+    align-items: center;
+    color: #ffffff;
+    position: fixed;
+    right: 20px;
+    top: 20px;
+}
+
+.Page div {
+    padding: 6px 8px;
+    margin-right: 5px;
+    font-size: 12px;
+    cursor: pointer;
+    border: 1px solid #ffffff;
+    border-radius: 2px;
+}

@@ -1,0 +1,24 @@
+{
+  "navList": [
+    {
+      "text": "首页",
+      "url": "",
+      "key": "home"
+    },
+    {
+      "text": "西瓜视频",
+      "url": "",
+      "key": "app"
+    },
+    {
+      "text": "放映厅",
+      "url": "",
+      "key": "movie"
+    },
+    {
+      "text": "我的",
+      "url": "",
+      "key": "user"
+    }
+  ]
+}

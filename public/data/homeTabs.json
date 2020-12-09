@@ -1,0 +1,52 @@
+{
+  "list": [
+    {
+      "text": "关注",
+      "key": "guanzhu"
+    },
+    {
+      "text": "推荐",
+      "key": "tuijian"
+    },
+    {
+      "text": "视频",
+      "key": "shipin"
+    },
+    {
+      "text": "免费小说",
+      "key": "mianfeixiaoshuo"
+    },
+    {
+      "text": "小视频",
+      "key": "xiaoshipin"
+    },
+    {
+      "text": "值点",
+      "key": "zhidian"
+    },
+    {
+      "text": "要闻",
+      "key": "yaowen"
+    },
+    {
+      "text": "音乐",
+      "key": "yinyue"
+    },
+    {
+      "text": "微头条",
+      "key": "weitoutiao"
+    },
+    {
+      "text": "直播",
+      "key": "zhibo"
+    },
+    {
+      "text": "圈子",
+      "key": "quanzi"
+    },
+    {
+      "text": "热点",
+      "key": "redian"
+    }
+  ]
+}

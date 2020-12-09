@@ -1,0 +1,13 @@
+.theme {
+    width: 300px;
+    height: 200px;
+    border-radius: 10px;
+}
+
+.theme .header {
+    border-bottom: 1px solid #ffffff;
+}
+
+.theme.theme-dark {
+    background: #000000;
+}

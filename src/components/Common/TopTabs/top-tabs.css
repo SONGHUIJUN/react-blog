@@ -1,0 +1,42 @@
+.hide-table-scroll {
+  height: 0.7rem;
+  overflow: hidden;
+  border-bottom: 0.02rem solid #eeeeee;
+}
+
+.top-tabs-container {
+  height: 0.9rem;
+  line-height: 0.7rem;
+  background: #ffffff;
+  width: 7.5rem;
+  overflow-x: auto;
+  overflow-y: hidden;
+  white-space: nowrap;
+}
+
+.top-tabs-container div.tab-item {
+  padding: 0 0.15rem;
+  position: relative;
+  font-size: 0.28rem;
+  cursor: pointer;
+  transition: all 0.5s;
+  display: inline-block;
+}
+
+.top-tabs-container div.active {
+  font-weight: bold;
+  color: #ed4014;
+}
+
+.top-tabs-container div.active:after {
+  content: "";
+  position: absolute;
+  display: inline-block;
+  bottom: 0;
+  left: 0;
+  width: 50%;
+  transform: translateX(50%);
+  height: 0.06rem;
+  background: #ed4014;
+  transition: all 0.5s;
+}

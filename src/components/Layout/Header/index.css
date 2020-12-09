@@ -1,0 +1,40 @@
+.app-header {
+  height: 100%;
+  width: 100%;
+  background-color: #ed4014;
+  color: #ffffff;
+  position: relative;
+  padding: 0.15rem 0.1rem;
+  display: flex;
+}
+
+.app-header-input {
+  flex: 1;
+}
+
+.app-header-input .ant-input-affix-wrapper {
+  border-radius: 0.4rem;
+  height: 0.7rem;
+}
+
+.app-header-input .ant-input-affix-wrapper > input.ant-input {
+  border-radius: 0.4rem;
+}
+
+.app-header .ant-input {
+  font-size: 0.24rem;
+}
+
+.app-header-btn {
+  width: 1rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: space-between;
+}
+
+.app-header-btn-text {
+  font-size: 0.2rem;
+  margin-top: 0.02rem;
+}

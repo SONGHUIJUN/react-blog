@@ -1,0 +1,20 @@
+.app-menu {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.app-footer-btn > * {
+  font-size: 0.28rem;
+}
+
+.app-menu-item {
+  flex: 1;
+  text-align: center;
+  cursor: pointer;
+}
+
+.app-menu-item-selected {
+  color: #ed4014;
+  font-weight: bold;
+}

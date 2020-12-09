@@ -1,0 +1,10 @@
+.article-item {
+  background: #ffffff;
+  padding: 0.15rem 0;
+  border-bottom: 0.02rem solid #eeeeee;
+}
+
+.article-item-sub-title {
+  color: #ccc;
+  font-size: 0.24rem;
+}
