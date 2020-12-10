@@ -37,11 +37,35 @@ export default class ArticleList extends Component {
                 <span className="article-item-company">{articleData.company}</span>
                 <span className="article-item-comment">{articleData.comment}评论</span>
                 <span className="article-item-time">{articleData.time}</span>
-                <span className="article-item-close"><CloseOutlined /></span>
+                <span className="article-item-close"><CloseOutlined/></span>
               </div>
             </div>
             <div className="article-item-right">
-              <img alt="此处为图片" src="./images/image.jpg"/>
+              <img alt="此处为图片" src="./images/image1.jpg"/>
+            </div>
+          </div>
+        }
+        {
+          articleData.type === "type-bottom" &&
+          <div className="article-item">
+            <div className="article-item-title">
+              {articleData.title}
+            </div>
+            <div className="article-item-image">
+              {
+                articleData.imageList.map(
+                  (image, index) => (
+                    <div key={index}>
+                      <img alt="此处为图片" src={'./images/image' + image.index + '.jpg'}/>
+                    </div>)
+                )
+              }
+            </div>
+            <div className="article-item-container">
+              <span className="article-item-company">{articleData.company}</span>
+              <span className="article-item-comment">{articleData.comment}评论</span>
+              <span className="article-item-time">{articleData.time}</span>
+              <span className="article-item-close"><CloseOutlined/></span>
             </div>
           </div>
         }
