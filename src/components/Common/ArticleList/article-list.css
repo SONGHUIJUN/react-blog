@@ -18,10 +18,10 @@
   margin-top: 0.1rem;
 }
 
-.article-item-container .article-item-close {
+.article-item-close {
   float: right;
   cursor: pointer;
-  margin-right: 0;
+  margin-right: 0!important;
 }
 
 .article-item-container span {
@@ -82,4 +82,23 @@
   border-radius: 4px;
   display: block;
   margin: auto;
+}
+
+.article-item-avatar {
+  margin-bottom: 0.1rem;
+  display: flex;
+}
+
+.article-item-avatar > div:first-child {
+  width: 0.7rem;
+}
+
+.article-item-avatar > div:last-child {
+  flex: 1;
+  font-size: 0.24rem;
+}
+
+.article-item-avatar > div:last-child span {
+  display: inline-block;
+  margin-right: 0.15rem;
 }
