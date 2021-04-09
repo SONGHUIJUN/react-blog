@@ -1,8 +1,9 @@
 import React, {Component} from "react";
+import {Link} from 'react-router-dom';
 import {MenuOutlined} from "@ant-design/icons";
 import "./top-tabs.css";
 
-export default class TopTabs extends Component {
+class TopTabs extends Component {
   constructor(props) {
     super(props);
     // console.log(props);
@@ -13,10 +14,10 @@ export default class TopTabs extends Component {
 
   toParent = (tab, index) => {
     // console.log(this.props)
-    this.props.init.getContentList(this, tab);
     this.setState({
       index
     })
+    // this.props.history.push('/home/' + tab.key);
   }
 
   showItem = () => {
@@ -30,7 +31,7 @@ export default class TopTabs extends Component {
           {
             this.props.init.state.tabList.map((tab, index) => (
               <div onClick={() => this.toParent(tab, index)} key={tab.text}
-                   className={`tab-item ${index === this.state.index ? "active" : ""}`}>{tab.text}</div>
+                   className={`tab-item ${index === this.state.index ? "active" : ""}`}><Link to={`/home/${tab.key}`}>{tab.text}</Link></div>
             ))
           }
           <div className="tab-item-right" onClick={this.showItem}>
@@ -41,3 +42,5 @@ export default class TopTabs extends Component {
     )
   }
 }
+
+export default TopTabs

@@ -15,7 +15,7 @@ httpServer.interceptors.request.use((config) => {
   config.paramsSerializer = function (params) {
     return qs.stringify(params, {arrayFormat: "repeat"})
   }
-  store.dispatch(showLoading());
+  // store.dispatch(showLoading());
   config.headers.common['Authorization'] = "songhuijun";
   return config;
 }, (error) => {
@@ -23,8 +23,7 @@ httpServer.interceptors.request.use((config) => {
 })
 
 httpServer.interceptors.response.use((res) => {
-  // console.log(res);
-  store.dispatch(hideLoading())
+  // store.dispatch(hideLoading())
   return res.data;
 }, (error) => {
   console.log("请求出错：", error);

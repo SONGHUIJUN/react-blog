@@ -29,6 +29,10 @@
   color: #ed4014;
 }
 
+.top-tabs-container a {
+  color: #333333!important;
+}
+
 .top-tabs-container div.active:after {
   content: "";
   position: absolute;

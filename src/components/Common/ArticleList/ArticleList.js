@@ -1,113 +1,54 @@
 import React, {Component} from "react";
 import "./article-list.css";
-import {CloseOutlined} from "@ant-design/icons";
-import { Avatar } from 'antd';
+import {get} from "../../../http";
+import ArticleItem from "./ArticleItem";
 
-export default class ArticleList extends Component {
+class ArticleList extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
-    // console.log(props);
+    this.state = {
+      listData: []
+    }
+    setTimeout(async () => {
+      await this.getContentList(props.title);
+    })
   }
 
-  closeArticle = (item) => {
-    console.log(item);
+  showArticleDetail = (item) => {
+    // this.props.history.replace('/home/detail');
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    // console.log('componentDidUpdate')
+    if (this.props.title !== prevProps.title) {
+      setTimeout(async () => {
+        await this.getContentList(this.props.title);
+      })
+    }
+  }
+
+  /**
+   * 根据顶部tab获取对应内容
+   * @param key
+   * @returns {Promise<void>}
+   */
+  getContentList = async (key) => {
+    if (!key) return;
+    let res = await get('./data/contentList.json');
+    this.setState({
+      listData: res[key] || []
+    });
   }
 
   render() {
-    let {articleData} = this.props;
     return (
-      <div>
-        {
-          articleData.type === "top" &&
-          <div className="article-item">
-            <div className="article-item-title">
-              {articleData.title}
-            </div>
-            <div className="article-item-container">
-              <span className="article-item-top">置顶</span>
-              <span className="article-item-company">{articleData.company}</span>
-              <span className="article-item-comment">{articleData.comment}评论</span>
-            </div>
-          </div>
-        }
-        {
-          articleData.type === "type-right" &&
-          <div className="article-item article-item-type-right">
-            <div className="article-item-left">
-              <div className="article-item-title">
-                {articleData.title}
-              </div>
-              <div className="article-item-container">
-                <span className="article-item-company">{articleData.company}</span>
-                <span className="article-item-comment">{articleData.comment}评论</span>
-                <span className="article-item-time">{articleData.time}</span>
-                <span className="article-item-close" onClick={()=>this.closeArticle(articleData)}><CloseOutlined/></span>
-              </div>
-            </div>
-            <div className="article-item-right">
-              <img alt="此处为图片" src={'./images/image' + articleData.imageList[0].index + '.jpg'}/>
-            </div>
-          </div>
-        }
-        {
-          articleData.type === "has-avatar" &&
-          <div className="article-item">
-            <div className="article-item-avatar">
-              <div>
-                <Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />
-              </div>
-              <div>
-                <div>
-                  <b>{articleData.avatarInfo.title}</b>
-                  <span className="article-item-close" onClick={()=>this.closeArticle(articleData)}><CloseOutlined/></span>
-                </div>
-                <div>
-                  <span className="article-item-comment">{articleData.avatarInfo.fans}粉丝</span>
-                  <span className="article-item-time">{articleData.avatarInfo.company}</span>
-                </div>
-              </div>
-            </div>
-            <div className="article-item-title">
-              {articleData.title}
-            </div>
-            <div className="article-item-image">
-              {
-                articleData.imageList.map(
-                  (image, index) => (
-                    <div key={index}>
-                      <img alt="此处为图片" src={'./images/image' + image.index + '.jpg'}/>
-                    </div>)
-                )
-              }
-            </div>
-          </div>
-        }
-        {
-          articleData.type === "type-bottom" &&
-          <div className="article-item">
-            <div className="article-item-title">
-              {articleData.title}
-            </div>
-            <div className="article-item-image">
-              {
-                articleData.imageList.map(
-                  (image, index) => (
-                    <div key={index}>
-                      <img alt="此处为图片" src={'./images/image' + image.index + '.jpg'}/>
-                    </div>)
-                )
-              }
-            </div>
-            <div className="article-item-container">
-              <span className="article-item-company">{articleData.company}</span>
-              <span className="article-item-comment">{articleData.comment}评论</span>
-              <span className="article-item-time">{articleData.time}</span>
-              <span className="article-item-close" onClick={()=>this.closeArticle(articleData)}><CloseOutlined/></span>
-            </div>
-          </div>
-        }
+      <div className="list-container">
+        {this.state.listData ? this.state.listData.map((item, index) => (
+          <ArticleItem key={index} articleData={item} detailFunc={this.showArticleDetail}/>
+        )) : '暂无数据'}
       </div>
     )
   }
 }
+
+export default ArticleList;

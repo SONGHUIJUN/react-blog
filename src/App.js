@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import {Spin} from "antd";
-import {HashRouter as Router} from 'react-router-dom';
+import {HashRouter as Router} from "react-router-dom";
 import FooterNav from "./components/Layout/Footer/FooterNav";
 import Content from "./components/Layout/Content/Content";
 import Header from './components/Layout/Header/Header';
@@ -41,3 +41,5 @@ class App extends Component {
 }
 
 export default App;
+
+

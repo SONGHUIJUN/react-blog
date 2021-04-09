@@ -4,16 +4,23 @@ import TopTabs from "../Common/TopTabs/TopTabs";
 import "./Counter";
 import ArticleList from "../Common/ArticleList/ArticleList";
 
-export default class Home extends Component {
+// import ArticleDetail from "../Common/ArticleDetail/ArticleDetail";
+
+class Home extends Component {
   constructor(props) {
     super(props);
-    this.ref = React.createRef();
     this.state = {
+      tabList: [],
       listData: [],
-      tabList: []
+      key: ''
     }
-    this.getTabList();
   }
+
+
+  componentDidMount() {
+    this.getTabList().then();
+  }
+
 
   /**
    * 获取顶部tabs
@@ -24,32 +31,29 @@ export default class Home extends Component {
     this.setState({
       tabList: res.list
     });
-    await this.getContentList(this, res.list[0])
+    this.props.history.replace('/home/guanzhu');
   }
 
-  /**
-   * 根据顶部tab获取对应内容
-   * @param result
-   * @param msg
-   * @returns {Promise<void>}
-   */
-  getContentList = async (result, msg) => {
-    let res = await get('./data/contentList.json', {text: msg.text});
-    this.setState({
-      listData: res[msg.key]
-    })
+
+  closeArticle = (event, item) => {
+    event.stopPropagation();
+    // console.log(event);
+  }
+
+  componentWillUnmount() {
+    this.setState = () => false;
   }
 
   render() {
+    let title = this.props.match.params.title;
+    console.log(this.props)
     return (
       <div>
         <TopTabs init={this}/>
-        <div className="list-container" ref={this.ref}>
-          {this.state.listData.map((item, index) => (
-            <ArticleList key={index} articleData={item}/>
-          ))}
-        </div>
+        <ArticleList title={title}/>
       </div>
     );
   }
 }
+
+export default Home;

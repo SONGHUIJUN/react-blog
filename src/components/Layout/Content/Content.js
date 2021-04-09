@@ -8,13 +8,14 @@ import "./Content.css";
 class Content extends Component {
   constructor(props) {
     super(props);
-    this.setPageUrl(store.getState().tabs.payload)
-  }
-
-  componentDidMount() {
+    this.setPageUrl(store.getState().tabs.payload);
     store.subscribe(() => {
       this.setPageUrl(store.getState().tabs.payload)
     })
+  }
+
+  componentWillUnmount() {
+    this.setState = () => false;
   }
 
   /**
@@ -23,15 +24,17 @@ class Content extends Component {
    */
   setPageUrl(url = "/") {
     this.props.history.replace('/' + url);
-    // this.props.history.push('/' + url);
   }
 
   render() {
     return (
-      <Switch>
-        <Route path="/home" component={Home}/>
-        <Route path="/user" component={User}/>
-      </Switch>
+      <div>
+        <Switch>
+          <Route exact path="/home" component={Home}/>
+          <Route path="/home/:title" component={Home}/>
+          <Route path="/user" component={User}/>
+        </Switch>
+      </div>
     );
   }
 }
